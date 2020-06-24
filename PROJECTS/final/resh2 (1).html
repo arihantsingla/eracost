@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab 9: Web Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset="utf-8">
+	<meta name="author" content="Rashmeet Kaur">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<div class="firstdiv">
+	<header>
+		<h1>Lecture 7 Lab: Web Form</h1>
+		<p class="headerid">Fields with * are required</p>
+	</header>
+	<section>
+		
+		<form method="POST" action='' name="myForm" onsubmit="return validateForm()">
+			<fieldset>
+				<legend>Your Personal Information</legend>
+				<div class="labels"  >
+					<p><label for="Fullname_id">Full Name*:</label></p>
+					<p><label for="Email_id">Email Address*:</label></p>
+					<p><label for="study_id">Current Study:</label></p>
+					<p><label for="age_id">Age:</label></p>
+				</div>
+				<div class="labels" >
+					<p><input class="inputclass" type="text" id="name" value="" placeholder="First and Last name" ></p>
+					<p><input class="inputclass" type="email" id="email" value="" placeholder="someone@somewhere.com"></p>
+					<p><input class="inputclass" type="text" name="" value="" placeholder="Douglas College" id="studyid" ></p>
+					<p><input class="inputclass" id="ageid" type="number" name="" placeholder="20"></p>
+				</div>
+				
+			</fieldset>
+			<fieldset class="fieldset2">
+				<legend>Your Quiz</legend>
+				<label>1. What is the result of the following equation?</label>
+				<p>2^2&times;5=<input id="ques1" type="text" name="" class="ques1"></p>
+				<p><label>2. What does the acronym W3C stand for?</label> 
+                 <select id="ques2">
+                 	<option id="ques2a">3rd World War Coalition</option>
+                 	<option id="ques2b">World Wide WarCraft</option>
+                 	<option id="ques2c">World Wide Web Consortium</option>
+                 	<option id="ques2d">World Wide Web</option>
+                 	
+                 </select>
+				</p>
+				<label>3. CSS is an abbreviation of<input id="ques3" type="text" name=""> style sheet</label>
+				<p><label>4. Select all the (scripting) languages we learn in CSIS 1280?</label><br>
+				<input class="ques4" type="checkbox" id="q41">HTML
+					<input type="checkbox" id="q42">CSS
+					<input type="checkbox" id="q43">JavaScript
+					<input type="checkbox" id="q44">PHP
+					<input type="checkbox" id="q45">C#
+					<input type="checkbox" id="q46">Java</p>
+					
+					<div class="divclass"><p><label>5. Consider the picture of a DOM structure below. Which of the following selector CANNOT be used to select all the <code>< p ></code> elements?</label></p>
+						<p class="ques5" >
+						<input type="radio" name="a1" id="q51">p<br>
+						<input type="radio" name="a1" id="q52">h1 ~ p<br>
+						<input type="radio" name="a1" id="q53">article p<br>
+						<input type="radio" name="a1" id="q54">article > p<br>
+						<input type="radio" name="a1" id="q55">h1 + p
+						
+					</p>
+					<aside >
+							<img src="images/q5.PNG" class="images">
+					</aside>
+				</div>
+
+                 <div class="divclass">
+					<p><label>6. Consider the picture of a DOM structure below. Which of the following selector CAN be used to select all the identified <code>< li ></code> elements?</label></p>
+						<p class="ques6" >
+						<input type="radio" name="b1" id="q61">li<br>
+						<input type="radio" name="b1" id="q62">li:nth-child(2n+1)<br>
+						<input type="radio" name="b1" id="q63">ul > li:(2n+1)<br>
+						<input type="radio" name="b1" id="q64">ul > li<br>
+						<input type="radio" name="b1" id="q65">ul > li(2n+1)
+						
+					</p>
+					<aside >
+							<img src="images/q6.PNG" class="images" >
+					</aside>
+				</div>
+				<div class="divclass">
+					<p class="ques7">7. Douglas College and the Coquitlam campus was named after the former Governor and Liutenant-Governor of British Columbia. What are their names?</p>
+					<aside>
+						<textarea rows="3" cols="20" class="textarea" id="ta"></textarea>
+					</aside>
+				</div>
+				
+					
+			</fieldset>
+			<p>
+				<input type="submit" name="" value="Submit My Quiz">
+			<input type="button" name="" value="Cancel">
+			</p>
+			
+		</form>
+		</div>
+		
+	</section>
+	<footer></footer>
+
+</body>
+
+    <script>
+function quiz() {
+    var count = 0;
+    var nm = document.getElementById("name");
+    var em = document.getElementById("email");
+    var st = document.getElementById("studyid");
+    var age = document.getElementById("ageid");
+    var ans1 = document.getElementById("ques1");
+    var e = document.getElementById("ques2");
+    var result = e.options[e.selectedIndex].text;
+    var ans3 = document.getElementById("ques3");
+    var x1 = document.getElementById("q41");
+    var x2 = document.getElementById("q42");
+    var x3 = document.getElementById("q43");
+    var x4 = document.getElementById("q44");
+    var x5 = document.getElementById("q45");
+    var x6 = document.getElementById("q46");
+
+    var x11 = document.getElementById("q51");
+    var x22 = document.getElementById("q52"); //b
+    var x33 = document.getElementById("q53");
+    var x44 = document.getElementById("q54");
+    var x55 = document.getElementById("q55");
+    var final = document.getElementById("ta");
+
+    var x111 = document.getElementById("q61");
+    var x222 = document.getElementById("q62");
+    var x333 = document.getElementById("q63"); //c
+    var x444 = document.getElementById("q64");
+    var x555 = document.getElementById("q65");
+    if ((nm.value == "") || (em.value == "") || (final.value == null) || (x111.checked == false && x222.checked == false && x333.checked == false && x444.checked == false && x555.checked == false) || (x11.checked == false && x22.checked == false && x33.checked == false && x44.checked == false && x55.checked == false) ||
+        (x1.checked == false && x2.checked == false && x3.checked == false && x4.checked == false && x5.checked == false && x6.checked == false) ||
+        (ans3.value == "") || (ans1.value == "")) {
+        if (ans1.value == "") {
+            alert("Please answer question 1");
+            return false;
+        }
+        if (ans3.value == "") {
+            alert("Please answer question 3");
+            return false;
+        }
+        if (x1.checked == false && x2.checked == false && x3.checked == false && x4.checked == false && x5.checked == false && x6.checked == false) {
+            alert("Please answer question 4");
+            return false;
+        }
+        if (x11.checked == false && x22.checked == false && x33.checked == false && x44.checked == false && x55.checked == false) {
+            alert("Please answer question 5");
+            return false;
+        }
+        if (x111.checked == false && x222.checked == false && x333.checked == false && x444.checked == false && x555.checked == false) {
+            alert("Please answer question 6");
+            return false;
+        }
+        if (final.value == null) {
+            alert("Please answer question 7");
+            return false;
+        }
+    } else {
+        var str = "";
+        var str1 = "",
+            str2 = "",
+            str3 = "",
+            str4 = "",
+            str5 = "",
+            str6 = "",
+            str7 = "";
+
+
+        if (ans1.value == 20) {
+            count++;
+            //alert(count);
+        }
+
+
+        if (!(ans1.value == 20)) {
+            str1 = "Correct answer for Ques.1 : 20 \n";
+            //alert(count);
+        }
+
+
+        if (result == "World Wide Web Consortium") {
+            count++;
+            //alert(count);
+        }
+        if (!(result == "World Wide Web Consortium")) {
+            str2 = "Correct answer for Ques.2 : World Wide Web Consortium\n";
+            //alert(count);
+        }
+
+        if (ans3.value.toLowerCase() === "cascading") {
+            count++;
+        }
+        if (!(ans3.value.toLowerCase() === "cascading")) {
+            str3 = "Correct answer for Ques.3 : cascading\n";
+        }
+        if (x1.checked) {
+            if (x2.checked) {
+                if (x3.checked) {
+                    count++;
+                    //alert(count);
+                }
+            }
+        }
+        if (!(x1.checked && x2.checked && x3.checked)) {
+            str4 = "Correct options for Ques.4 : HTML,CSS and JavaScript\n";
+        }
+
+        if (x55.checked) {
+            count++;
+        }
+        if (!(x55.checked)) {
+            str5 = "Correct option for Ques.5 : h1+p\n";
+        }
+        if (x222.checked) {
+            count++;
+            // alert(count);
+        }
+        if (!(x222.checked)) {
+            str6 = "Correct option for Ques.6 : li:nth-child(2n+1)\n";
+            // alert(count);
+        }
+
+        if (final.value.toLowerCase().trim().includes("james douglas") && final.value.toLowerCase().trim().includes("david lam")) {
+            count++;
+
+        }
+        if (!(final.value.toLowerCase().trim().includes("james douglas") && final.value.toLowerCase().trim().includes("david lam"))) {
+            str7 = "Correct answer for Ques.7 : sir james douglas and david lam\n";
+
+        }
+        var res = str.concat(str1, str2, str3, str4, str5, str6, str7);
+        var xh = document.getElementById("name").value;
+        alert("Congratulations " + xh + " for taking the quiz " + "\n" + "Your score is : " + count + "\n" + res);
+
+    }
+}
+
+function validateForm() {
+    var nm = document.getElementById("name");
+    var em = document.getElementById("email");
+    var st = document.getElementById("studyid");
+    var age = document.getElementById("ageid");
+
+
+    var final = document.getElementById("ta");
+    if (nm.value == "") {
+        alert("Please provide name");
+        return false;
+    }
+    if (em.value == "") {
+        alert("Please provide email");
+        return false;
+    }
+    if (st.value != "") {
+        if(isNaN(document.getElementById("studyid").parseInt));
+        {
+            alert("First letter should be character in college name");
+            return false;
+        }
+        
+        if (st.length < 3) {
+            alert("Please Enter college name more than 3 characters");
+            return false;
+        }
+
+    }
+    if (age.value == "") {
+        alert("Please provide age");
+        return false;
+    }
+
+    quiz(this);
+}
+</script>
+</html>

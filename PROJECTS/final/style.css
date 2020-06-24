@@ -1,0 +1,58 @@
+.headerid{
+	color: red;
+}
+.firstdiv{
+	margin-left: 25%;
+}
+legend{
+	background-color: lightgrey;
+	padding: 8px;
+}
+div{
+	float: left;
+	width: 50%;
+}
+.labels{
+	float: left;
+	width: 50%;
+
+}
+.inputclass{
+	width: 100%;
+}
+.fieldset2{
+	margin-top:5%;
+}
+.ques1{
+	width: 10%;
+}
+.ques4{
+	margin-left: 10px;
+}
+.ques5{
+	float: left;
+	width: 50%;
+	margin-top: -10px;
+
+}
+aside{
+	float: right;
+	width: 50%;
+}
+.divclass{
+	width: 100%;
+}
+.textarea{
+	margin-top: 20px;
+}
+.ques7{
+	float: left;
+	width: 50%;
+}
+.images{
+	height: 150px;
+}
+.img2{
+	height: 150px;
+	padding: 20px;
+}
